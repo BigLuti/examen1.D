@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Crear</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/crear.css">
+        
+
+        
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card-header bg-black text-white"> </div>
+            <div class="card-body">
+
+                <!--------------- Esto es un formulario --------------->
+                <div class="container">
+                    <form th:object =${concierto}
+                          th:action="@{/save}"
+                          method="POST">
+
+                        <input type="hidden" th:field="*{id}">
+
+                        <div id="nombreHelpBlock" class="form-text">
+                        <label for="inputnombre" class="form-label">Nombre</label>
+                        <input type="text" id="inputnombre" class="form-control" th:field="*{nombre}" aria-describedby="nombreHelpBlock">
+                        </div>
+                        
+                        <div id="costoHelpBlockH" class="form-text">
+                        <label for="inputcosto" class="form-label">costo</label>
+                        <input type="text" id="inputcosto" class="form-control" th:field="*{costo}" aria-describedby="costoHelpBlock">
+                        </div>
+                        
+                        <div id="fechaHelpBlock" class="form-text">
+                        <label for="inputfecha" class="form-label">fecha</label>
+                        <input type="text" id="inputfecha" class="form-control" th:field="*{fecha}" aria-describedby="fechaHelpBlock">
+                        </div>
+                        
+                        <div id="capacidadHelpBlock" class="form-text">
+                        <label for="inputcapacidad" class="form-label">capacidad</label>
+                        <input type="text" id="inputcapacidad" class="form-control" th:field="*{capacidad}" aria-describedby="capacidadHelpBlock">
+                        </div>               
+                       
+                         <div id="lugarHelpBlock" class="form-text">
+                        <label for="inputlugar" class="form-label">lugar</label>
+                        <input type="text" id="inputlugar" class="form-control" th:field="*{lugar}" aria-describedby="lugarHelpBlock">
+                        </div>      
+                       
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-form-label col-md-2" for="locales">Local</label>
+                            <div class="col-sm-10">
+                                <select th:field="*{local}" class="form-control form-control-sm col-md-6" id="local" aria-describedby="localHelp">
+                                   <option th:each= "x:${locales}"
+                                           th:value= "${x.id}"
+                                           th:text= "${x.local}"/> 
+                                </select>  
+                            </div>
+                         </div>
+                            <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>
+                    </form>
+                 </div>
+             </div>
+          </div>
+       </body>
+   </html>

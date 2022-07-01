@@ -1,0 +1,12 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:object": {
+            "context": "form"
+        },
+        "th:field": {
+            "context": "input"
+        },
+        "th:each": {}
+    }
+}
